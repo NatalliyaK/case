@@ -1,0 +1,354 @@
+@import 'vars';
+@import 'mixins';
+@import 'vendor/reset';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: calc(100vw / 1920 * 10);
+
+  @include breakpoint($xl-bp) {
+    font-size: calc(100vw / 1280 * 10);
+  }
+
+  @include breakpoint($sm-bp) {
+    font-size: calc(100vw / 400 * 10);
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+input:focus,
+select:focus {
+  outline: none;
+  padding: 0;
+}
+
+input:focus {
+  padding: 0;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+input[type="text" i] {
+  writing-mode: horizontal-tb !important;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+input[type="number" i] {
+  writing-mode: horizontal-tb !important;
+  padding-block: 0;
+  padding-inline: 0;
+}
+
+//input::-webkit-outer-spin-button,
+//input::-webkit-inner-spin-button {
+//  -webkit-appearance: none;
+//  margin: 0;
+//}
+
+select {
+  background: transparent;
+  border: none;
+  border-bottom: 0.1rem solid $textAdd;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding-bottom: 0.2rem;
+  width: 32rem;
+  color: $colorBg;
+  font-weight: 500;
+  @include breakpoint($sm-bp) {
+    width: 15rem;
+  }
+}
+
+select:focus {
+  padding-bottom: 0.2rem;
+}
+
+.--size {
+  width: 72rem;
+  @include breakpoint($xl-bp) {
+    width: 68rem;
+  }
+  @include breakpoint($sm-bp) {
+    width: 32rem;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+a, a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.wrapper {
+  max-width: 152rem;
+  margin: 0 auto;
+  @include breakpoint($xl-bp) {
+    max-width: 120rem;
+  }
+  @include breakpoint($sm-bp) {
+    max-width: 32rem;
+  }
+}
+
+.image-slider {
+  width: 16rem;
+  height: 16rem;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image__video-icon {
+  position: absolute;
+  top: 17%;
+  left: 44%;
+  width: 4rem;
+  height: 12rem;
+}
+
+.swiper-slide-content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 4rem;
+  @include breakpoint($sm-bp) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.swiper-pagination {
+  color: $textAdd;
+}
+
+.swiper-pagination span.swiper-pagination-bullet-active {
+  background-color: $textAdd !important;
+}
+
+.svg {
+  width: 4rem;
+  height: 3.6rem;
+}
+
+picture {
+  width: 152rem;
+  @include breakpoint($xl-bp) {
+    width: 120rem;
+  }
+}
+
+.title {
+  font-size: 18rem;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.9rem;
+}
+
+.subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10rem;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.5rem;
+  text-transform: uppercase;
+  @include breakpoint($xl-bp) {
+    font-size: 7.8rem;
+    letter-spacing: -0.39rem;
+  }
+  @include breakpoint($sm-bp) {
+    font-size: 4rem;
+    letter-spacing: -0.2px;
+  }
+}
+
+.text {
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.text-bold {
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.title__incident {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.64rem;
+  color: $colorTitle;
+  text-transform: uppercase;
+}
+
+.text__button {
+  font-size: 43px;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.close {
+  width: 3rem;
+  height: 3rem;
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include breakpoint($sm-bp) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.--color-text {
+  color: $colorWhite;
+}
+
+.--color-sp {
+  color: $colorText;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  display: none;
+}
+
+.element-animation-left {
+  opacity: 0;
+  position: relative;
+  transform: translateX(-10%);
+  transition-duration: 1s;
+  @include breakpoint($xl-bp) {
+    transform: none;
+  }
+}
+
+.element-animation-right {
+  opacity: 0;
+  position: relative;
+  transform: translateX(10%);
+  transition-duration: 1s;
+  @include breakpoint($xl-bp) {
+    transform: none;
+  }
+}
+
+.element-animation-left.element-show,
+.element-animation-right.element-show {
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  transition-duration: 1s;
+}
+
+.element-animation {
+  transform: translateY(5rem);
+  opacity: 0;
+  position: relative;
+  transition-duration: 1s;
+}
+
+.element-animation.element-show {
+  position: relative;
+  transform: translateY(0);
+  opacity: 1;
+  transition-duration: 1s;
+}
+
+.button__additional {
+  background-color: $colorText;
+  padding: 2.2rem 6.6rem;
+}
+
+.show-policese {
+  &:hover {
+    color: $colorText;
+    cursor: pointer;
+  }
+}
+
+.close-policise {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  @include breakpoint($sm-bp) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.overflow {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  scrollbar-gutter: stable !important;
+  overflow: hidden !important;
+  overscroll-behavior-y: none !important;
+  touch-action: none;
+
+  @include breakpoint($sm-bp) {
+    scrollbar-gutter: auto !important;
+  }
+}
+
+.swiper-slide {
+  cursor: pointer;
+}
+
+.location__video {
+  position: absolute;
+  top: -33%;
+}
+
+
+@import "importsBlocks";

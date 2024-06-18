@@ -1,0 +1,146 @@
+@import '../vars';
+@import '../mixins';
+
+.accordion {
+  margin-top: 8rem;
+  &__container {
+    display: flex;
+    width: 100%;
+    gap: 8rem;
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  &__title {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      @include breakpoint($xl-bp) {
+        width: 80%;
+      }
+    }
+
+    &.active {
+      color: $colorText;
+    }
+    span {
+      display: inline-flex;
+      position: relative;
+      width: 5rem;
+      height: 5rem;
+      background-color: transparent;
+      transition: transform 0.5s ease-out;
+      cursor: pointer;
+      @include breakpoint($xl-bp) {
+        width: 4.1rem;
+        height: 4.1rem;
+      }
+    }
+
+    &.active span{
+      transform: rotate(45deg);
+    }
+
+    & span::before{
+      border: 1px solid $colorBg;
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 1px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $colorBg;
+      @include breakpoint($sm-bp) {
+        width: 70%;
+      }
+    }
+
+    & span::after{
+      border: 1px solid $colorBg;
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 80%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $colorBg;
+      @include breakpoint($sm-bp) {
+        height: 70%;
+      }
+    }
+  }
+
+  &__item:not(:last-of-type) {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.1rem solid $textAdd;
+    padding-bottom: 3rem;
+  }
+
+  &__item:first-of-type {
+    border-top: 0.1rem solid $textAdd;
+}
+
+  &-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.1s ease-out, visibility 0.1s ease-out 0.5s;
+  }
+
+  &-content.active {
+    visibility: visible;
+    opacity: 1;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.1s ease-out, visibility 0.1s ease-out;
+  }
+
+}
+
+.accordion2 {
+  margin-top: 8rem;
+  width: 50%;
+  @include breakpoint($sm-bp) {
+    width: 100%;
+    margin-top: 4rem;
+  }
+}
+
+.accordion {
+  width: 50%;
+  @include breakpoint($sm-bp) {
+    width: 100%;
+  }
+}
+
+.accordion3 {
+  .accordion__item {
+    padding-bottom: 0;
+    border-bottom: 0.1rem solid $textAdd;
+  }
+
+  .accordion__item:first-of-type {
+    border-top: 0;
+  }
+
+  .accordion__title {
+    color: $textAdd;
+    padding: 2rem 1rem;
+    font-size: 1.6rem;
+    border-radius: 0.3rem;
+    &:hover {
+      background-color: $textAdd;
+      cursor: pointer;
+      color: $colorWhite;
+    }
+  }
+
+  .number__items {
+    margin: 2rem 0;
+  }
+}

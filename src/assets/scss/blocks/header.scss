@@ -1,0 +1,92 @@
+@import '../vars';
+@import '../mixins';
+
+.header {
+  border-bottom: 0.1rem solid $colorBg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 111111;
+  background-color: $colorWhite;
+  &__wrapper {
+    padding: 2.4rem 0 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    @include breakpoint($xl-bp) {
+      padding: 2.4rem 0;
+    }
+    @include breakpoint($sm-bp) {
+      padding: 1.8rem 0;
+    }
+  }
+
+  &__nav-container {
+    display: flex;
+    gap: 4rem;
+    @include breakpoint($sm-bp) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 5rem;
+    font-size: 1.4rem;
+    @include breakpoint($xl-bp) {
+      gap: 3rem;
+    }
+  }
+
+  &__nav-list li a {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+  }
+
+  &__nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $colorText;
+    transition: width .3s;
+  }
+
+  &__nav-list li a:hover::after {
+    width: 100%;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    span:first-child {
+      color: $colorText;
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    span:first-child {
+      color: $colorText;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    span:nth-child(2) {
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.025rem;
+    }
+  }
+}

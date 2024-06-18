@@ -1,0 +1,90 @@
+@import '../vars';
+@import '../mixins';
+
+.formSend {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 53rem;
+  height: 45rem;
+  background-color: $colorWhite;
+  margin: 15% auto;
+  padding: 4rem 8.6rem;
+  font-size: 1.6rem;
+  @include breakpoint($xl-bp) {
+    margin: 25% auto;
+  }
+  @include breakpoint($sm-bp) {
+    width: 30rem;
+    height: 40rem;
+    padding: 3rem 1.6rem;
+  }
+
+  &__wrapper {
+    transform: scale(0);
+    position: fixed;
+    z-index: 1000000;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div {
+    position: absolute;
+    top: 3%;
+    right: 7%;
+  }
+
+  &__title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 5rem;
+    letter-spacing: -0.5rem;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    @include breakpoint($sm-bp) {
+      font-size: 4rem;
+      letter-spacing: -0.2rem;
+    }
+  }
+
+  label {
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    margin-bottom: 1.1rem;
+  }
+
+  input {
+    border: none;
+    background-color: $colorInput;
+    width: 35rem;
+    height: 4rem;
+    padding: 0 1rem;
+    margin-bottom: 1.4rem;
+    @include breakpoint($sm-bp) {
+      width: 25rem;
+    }
+  }
+
+  button {
+    align-self: center;
+    margin-top: 2.3rem;
+  }
+}
+
+.active {
+  transform: scale(1);
+}
+
+.hidden {
+  transform: scale(0);
+}

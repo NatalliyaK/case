@@ -1,0 +1,87 @@
+@import '../vars';
+@import '../mixins';
+
+.footer {
+  background-color: $colorBg;
+  padding: 6rem 0 6rem;
+  @include breakpoint($sm-bp) {
+    padding: 6rem 0 5rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    @include breakpoint($sm-bp) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    color: $colorWhite;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .input input {
+      background-color: transparent;
+    }
+
+    form {
+      padding-left: 0;
+
+      .form .form-control::placeholder {
+        color: $colorWhite;
+        opacity: 1;
+      }
+    }
+
+    .button {
+      &:hover {
+        background-color: brown;
+      }
+    }
+
+    .input input {
+      color: $colorWhite;
+    }
+
+    input::placeholder {
+      color: $colorWhite;
+    }
+
+    .information__button p {
+      margin-top: 4rem;
+      color: $textAdd;
+      text-transform: uppercase;
+    }
+  }
+
+  &__svg {
+    width: 2.9rem;
+    height: 2.9rem;
+  }
+
+  &__linc {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__up {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__hov:hover {
+    color: $colorText;
+  }
+}
